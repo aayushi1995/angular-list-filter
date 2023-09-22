@@ -1,0 +1,12 @@
+.flexbox{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.columns {
+    min-width:100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
