@@ -1,6 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { Subscription } from 'rxjs';
+import { applyPagination, LIMIT } from 'src/utils';
+import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-list',
@@ -14,9 +16,12 @@ export class ListComponent implements OnInit {
   public listColumns: any;
 
   // Pagination variables
-  public limit: number = 7
-  public page: number = 1
   public currentData: any
+  public limit: number = LIMIT;
+  public page: number = 1;
+
+  // subscription variable
+  private dataSubscription: Subscription;
 
   constructor(private dataService: DataService) {}
 
@@ -34,10 +39,13 @@ export class ListComponent implements OnInit {
     }
 
     // calculate paginated data
-    this.currentData = applyPagination(data, this.page, this.limit) 
-    
+    this.currentData = applyPagination(data, 1, LIMIT) 
    });
 
+  }
+
+  updateCurrentData = (data) => {
+    this.currentData = data
   }
 
   onPreviousClick = () => {
@@ -46,18 +54,22 @@ export class ListComponent implements OnInit {
   }
 
   onNextClick = () => {
-    this.page = this.page + 1
-    this.currentData = applyPagination(this.listData, this.page, this.limit) 
+      this.page = this.page + 1
+      this.currentData = applyPagination(this.listData, this.page, this.limit) 
   }
 
   getTotalRecords = () => {
     return this.listData.length
   }
 
+  getLastPage = () => {
+    return this.page === Math.ceil(this.listData.length / this.limit)
+  }
+
+  ngOnDestroy():void {
+    // Unsubscribe from observables to prevent memory leaks
+    this.dataSubscription.unsubscribe();
+  }
+
 }
 
-const applyPagination = (data, page, limit) => {
-  const end = page * limit
-  const start = end - limit
-  return data.slice(start, end)
-}

@@ -29,17 +29,16 @@
     </div>
   </div>
   
-   <div class="w-screen bg-white p-4 rounded-lg flex justify-center fixed bottom-0 bg-white p-4 shadow-lg">
+  <div class="w-screen bg-white p-4 rounded-lg flex justify-center fixed bottom-0 bg-white p-4 shadow-lg">
     <button class="" [disabled]="page === 1" (click)="onPreviousClick()">
       previous
     </button>
     <div class="min-w-[100px] text-center">{{page}}</div>
-    <button class="" [disabled]="page === currentData.length" (click)="onNextClick()">
+    <button class="" [disabled]="getLastPage()" (click)="onNextClick()">
         next
     </button>
     <div class="px-2">{{getTotalRecords()}}</div>
-  </div>
-    
+</div>
 </div>  
 
 
