@@ -92,10 +92,11 @@ table td{
 .icon-button:disabled.icon-button:hover{
     background-color: transparent;
 }
-.icon-button:hover{
+.icon-button:hover, .icon-button:focus{
     box-shadow: 0px 3px 5px 0px darkgrey;
     border-radius: 50%;
 }
+
 .page-item {
     color: black;
     font-weight: 500;

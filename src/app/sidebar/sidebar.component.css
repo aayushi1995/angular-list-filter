@@ -92,7 +92,7 @@
 .action-bar button.clear{
     background-color:rgb(251 192 77);
 }
-.action-bar button:hover{
+.action-bar button:hover, .action-bar button:focus{
     box-shadow: 0px 3px 5px 0px darkgrey;
 }
 
