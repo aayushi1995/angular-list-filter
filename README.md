@@ -42,5 +42,6 @@ aayushi.kambriya5@gmail.com
 
 ### - Deployment :
 
-The app is deployed at ` https://aayushi1995.github.io/angular-list-filter`
+The app is deployed at [https://aayushi1995.github.io/angular-list-filter](https://aayushi1995.github.io/angular-list-filter)
+
 
