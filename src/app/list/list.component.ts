@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { applyPagination, LIMIT } from 'src/utils';
+import { applyPagination, IData, LIMIT } from 'src/utils';
 import { DataService } from '../../service/data.service';
 
 @Component({
@@ -12,11 +12,11 @@ import { DataService } from '../../service/data.service';
 
 export class ListComponent implements OnInit {
 
-  public listData: any;
-  public listColumns: any;
+  public listData: IData[];
+  public listColumns: string[];
 
   // Pagination variables
-  public currentData: any
+  public currentData: IData[]
   public limit: number = LIMIT;
   public page: number = 1;
 
@@ -45,7 +45,7 @@ export class ListComponent implements OnInit {
 
   }
 
-  updateCurrentData = (data) => {
+  updateCurrentData = (data: IData[]) => {
     this.currentData = data
   }
 

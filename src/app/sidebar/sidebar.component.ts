@@ -11,7 +11,6 @@ import { OPERATORS } from 'src/utils';
 })
 
 
-// TODO: break into components and Modular Code
 export class SideBarComponent {
 
   // columns and selected option

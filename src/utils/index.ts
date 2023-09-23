@@ -2,7 +2,7 @@ export const OPERATORS = ['<=', '>=', '=', '≠', 'contains', 'does not contain'
 
 export const LIMIT = 7
 
-export const applyPagination = (data: any[], page:number, limit:number) => {
+export const applyPagination = (data: IData[], page:number, limit:number) => {
     const end = page * limit
     const start = end - limit
     return data.slice(start, end)
@@ -14,9 +14,15 @@ export interface Ifilters {
   inputValue:string
 }
 
-export const applyFilters = (filters:Ifilters[], obj:any[]): any[] => {
+export interface IData{
+  [key:string]: string
+}
 
-    let passesAllFilters:any = true;
+// TODO : Implement OR and AND operator with each filter
+
+export const applyFilters = (filters:Ifilters[], obj:IData): boolean => {
+
+    let passesAllFilters:boolean = true;
 
     for (const filter of filters) {
       const objValue = obj?.[filter?.column]
@@ -52,7 +58,7 @@ export const applyFilters = (filters:Ifilters[], obj:any[]): any[] => {
         case 'does not contain':
           const notContainColumnValue = objValue?.toString()?.toLowerCase() || undefined;
           const notContainFilterValue = inputValue?.toString()?.toLowerCase() || undefined;
-          passesAllFilters = passesAllFilters && !notContainColumnValue.includes(notContainFilterValue);
+          passesAllFilters = passesAllFilters && !notContainColumnValue?.includes(notContainFilterValue);
           break;
 
         default:
