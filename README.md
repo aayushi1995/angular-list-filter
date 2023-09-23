@@ -1,4 +1,4 @@
-# ListandFilters
+# List&Filters
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
@@ -17,9 +17,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Dependencies
 
 1. rxjs Library : create and work with observables
-
-## 
-
 
 
 ## List & Filters
@@ -58,3 +55,7 @@ Users can also use an api endpoint and replace with the local url.
 ### - Developer :
 
 aayushi.kambriya5@gmail.com
+
+### - Deployment :
+
+The app is deployed at ` https://aayushi1995.github.io/angular-list-filter`
