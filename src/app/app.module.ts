@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from "@angular/forms";
 import { ListComponent } from './list/list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ToolboxComponent } from './toolbox/toolbox.component';
+import { SideBarComponent } from './sidebar/sidebar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -13,7 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     ListComponent,
-    ToolboxComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,

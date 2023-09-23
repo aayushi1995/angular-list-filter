@@ -1,0 +1,113 @@
+.sidebar-container {
+    box-shadow: -1px 3px 5px 0px #d9d9d9;
+    padding: 10px;
+    position: relative;
+    margin-right: 5px;
+    height: 80vh;
+}
+
+.flex-column {
+    display: flex;
+    padding: 6px;
+    max-height: 50vh;
+    overflow-x: auto;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.remove-button {
+    top: 26px;
+    position: relative;
+}
+
+.form-group {
+   width: 100%;
+}
+
+.form-group label {
+    font-size: 14px;
+    padding: 5px;
+    color: #878787;
+}
+
+.form-group select, .form-group input {
+    max-width: 100px;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 5px 0px;
+}
+
+.validation-error {
+    border: 2px solid rgb(255, 179, 0) !important;
+}
+.required-alert{
+    color:rgb(255, 153, 0);
+    font-size:12px;
+}
+.add-group-container{
+    width:100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.circular-button {
+    border-radius: 50%;
+    box-shadow: 1px 0px 6px 1px lightgray;
+    
+}
+
+.actionable-button {
+    background-color: navy;
+    outline: none;
+    box-shadow: 0px 0px 6px 1px lightgray;
+    padding: 5px 15px;
+}
+
+.action-bar{
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.action-bar button {
+    background-color: rgb(86 149 255);
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    box-shadow: 1px 0px 6px 1px lightgray;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 20px;
+}
+.action-bar button.clear{
+    background-color:rgb(251 192 77);
+}
+.action-bar button:hover{
+    box-shadow: 0px 3px 5px 0px darkgrey;
+}
+
+
+/* Mobile css */
+
+@media screen and (max-width: 800px) {
+    
+    .flex-column{
+        max-height: 50vh;
+    }
+    .remove-button {
+        top: 0px;
+        display: flex;
+        align-items: center;
+        align-self: center;
+    }
+  }

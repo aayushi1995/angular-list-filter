@@ -1,0 +1,40 @@
+
+.flexbox{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.center {
+    justify-content: center;
+}
+.side-bar {
+    width: 32vw;
+    height:100%;
+    background-color: white;
+}
+.list-view {
+    width: 66vw;
+    background-color: white;
+}
+
+
+/* Mobile css */
+
+@media screen and (max-width: 800px) {
+    .flexbox {
+        width: 100vw;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .side-bar {
+        width: 97vw;
+        margin-bottom: 20px;
+        height: 100%;
+        background-color: white;
+    }
+    .list-view {
+        width: 97vw;
+        background-color: white;
+    }
+  }

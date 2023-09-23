@@ -5,14 +5,14 @@ import { Subscription } from 'rxjs';
 import { OPERATORS } from 'src/utils';
 
 @Component({
-  selector: 'app-toolbox',
-  templateUrl: './toolbox.component.html',
-  styleUrls: ['./toolbox.component.css']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css', './../list/list.component.css']
 })
 
 
 // TODO: break into components and Modular Code
-export class ToolboxComponent {
+export class SideBarComponent {
 
   // columns and selected option
   public columns: string[] = []

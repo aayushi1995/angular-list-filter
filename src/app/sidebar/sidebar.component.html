@@ -1,0 +1,60 @@
+<form class="sidebar-container" [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+  <h4 class="flex-row">Filter Box</h4>
+  <div formArrayName="inputGroups" class="flex-column">
+    <div *ngFor="let group of inputGroups.controls; let i = index" [formGroupName]="i" class="flex-row">
+
+     <!-- TODO: create a custom dropdown component and use that -->
+      <div class="form-group">
+        <label for="column" class="block text-sm font-medium leading-6 text-gray-900"> Columns </label>
+        <select [ngClass]="group.get('column').hasError('required') && group.get('column').touched ? 'validation-error' : 'validation-success'" id="column" formControlName="column" autocomplete="column"  aria-labelledby="column-label" aria-placeholder="Select Column">
+          <option *ngFor="let col of columns" [value]="col">{{col}}</option>
+        </select> 
+        <div *ngIf="group.get('column').hasError('required') && group.get('column').touched" class="required-alert">
+          Required
+        </div>
+      </div>
+
+     
+      <div class="form-group">
+        <label for="operator" class="block text-sm font-medium leading-6 text-gray-900"> Operators </label>
+        <select id="operator" formControlName="operator" [ngClass]="group.get('operator').hasError('required') && group.get('operator').touched ? 'validation-error' : 'validation-success'"  aria-label="Select an Operator"  aria-placeholder="Select Operator" >
+          <option *ngFor="let op of operators" [value]="op">{{op}}</option>
+        </select>
+        <div *ngIf="group.get('operator').hasError('required') && group.get('operator').touched" class="required-alert">
+          Required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputValue" class="block text-sm font-medium leading-6 text-gray-900"> Value </label>
+        <input type="text" id="inputValue" formControlName="inputValue" [ngClass]="group.get('inputValue').hasError('required') && group.get('inputValue').touched ? 'validation-error' : 'validation-success'" aria-label="Type Input value" aria-placeholder="Enter Input value">
+        <div *ngIf="group.get('inputValue').hasError('required') && group.get('inputValue').touched" class="required-alert">
+          Required
+        </div>
+      </div>
+
+      <!-- remove form group button -->
+      <button class="circular-button icon-button remove-button" type="button" (click)="removeInputGroup(i)" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+            <path d="M6 12L18 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+       
+      </button>
+    </div>
+  </div>
+
+  <!-- Add form group button -->
+  <div class="add-group-container">
+    <button class="circular-button icon-button" type="button" (click)="addInputGroup()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+        <path d="M4 12H20M12 4V20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="action-bar">
+    <button type="submit" [disabled]="inputGroups.controls.length < 1">Apply</button>
+    <button (click)="clearFilters()" class="clear">Clear</button>
+  </div>
+ 
+
+</form> 

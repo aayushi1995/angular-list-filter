@@ -31,14 +31,15 @@ export class ListComponent implements OnInit {
 
    // Subscribe to data changes
    this.dataService.data$.subscribe((data) => {
-    this.listData = data;
     
+    this.listData = data;
     // extract columns
     if(data?.length > 0) {
       this.listColumns = Object.keys(data?.[0])
     }
 
     // calculate paginated data
+    this.page = 1
     this.currentData = applyPagination(data, 1, LIMIT) 
    });
 

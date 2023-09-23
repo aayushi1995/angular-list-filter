@@ -19,32 +19,39 @@ export const applyFilters = (filters:Ifilters[], obj:any[]): any[] => {
     let passesAllFilters:any = true;
 
     for (const filter of filters) {
+      const objValue = obj?.[filter?.column]
+      const inputValue = filter?.inputValue
+      
+      if(inputValue === ""){
+        break;
+      }
+   
       switch (filter?.operator) {
         case '<=':
-          passesAllFilters = passesAllFilters && parseInt(obj?.[filter.column]) <= parseInt(filter.inputValue);
+          passesAllFilters = passesAllFilters && parseInt(objValue) <= parseInt(inputValue);
           break;
 
         case '>=':
-          passesAllFilters = passesAllFilters && parseInt(obj?.[filter.column]) >= parseInt(filter.inputValue);
+          passesAllFilters = passesAllFilters && parseInt(objValue) >= parseInt(inputValue);
           break;
 
         case '=':
-          passesAllFilters = passesAllFilters && parseInt(obj?.[filter.column]) === parseInt(filter.inputValue);
+          passesAllFilters = passesAllFilters && parseInt(objValue) === parseInt(inputValue);
           break;
 
         case '≠':
-          passesAllFilters = passesAllFilters && parseInt(obj?.[filter.column]) !== parseInt(filter.inputValue);
+          passesAllFilters = passesAllFilters && parseInt(objValue) !== parseInt(inputValue);
           break;
 
         case 'contains':
-          const columnValue = obj?.[filter.column]?.toLowerCase();
-          const filterValue = filter.inputValue?.toLowerCase();
-          passesAllFilters = passesAllFilters && columnValue.includes(filterValue);
+          const columnValue = filter?.column ? objValue?.toString()?.toLowerCase() : undefined;
+          const filterValue = filter?.column ? inputValue?.toString()?.toLowerCase() : undefined;
+          passesAllFilters = passesAllFilters && columnValue?.includes(filterValue);
           break;
 
         case 'does not contain':
-          const notContainColumnValue = obj?.[filter.column]?.toLowerCase();
-          const notContainFilterValue = filter.inputValue?.toLowerCase();
+          const notContainColumnValue = objValue?.toString()?.toLowerCase() || undefined;
+          const notContainFilterValue = inputValue?.toString()?.toLowerCase() || undefined;
           passesAllFilters = passesAllFilters && !notContainColumnValue.includes(notContainFilterValue);
           break;
 

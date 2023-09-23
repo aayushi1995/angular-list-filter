@@ -1,43 +1,61 @@
 
-<div class="w-95vw">
-  <div class="flex flex-col overflow-x-auto bg-white p-4 rounded-lg shadow-md" >
-    <div class="sm:-mx-6 lg:-mx-8">
-      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-        <div class="overflow-x-auto">
-          <table class="min-w-full text-left text-sm font-light">
-            <thead class="border-b font-medium dark:border-neutral-500">
+<div class="full-width">
+  <div class="table-container">
+        <div class="overflow-container">
+          <table>
+            <thead>
               <tr>
-                <th scope="col" class="px-6 py-4" *ngFor="let column of listColumns" [title]="column">
-                    <div class="min-w-[50px] line-clamp-3">
+                <th scope="col" *ngFor="let column of listColumns" [title]="column">
+                    <div class="cell">
                       {{ column }}
                     </div>
                 </th>
             </thead>
-            <tbody>
-              <tr class="border-b dark:border-neutral-500" *ngFor="let item of currentData">
-                <td class="whitespace-normal break-all px-6 py-4 font-medium overflow-hidden hover:overflow-visible w-50" *ngFor="let column of listColumns" [title]="item[column]">
-                    <div class="min-w-[50px] line-clamp-3">
-                        {{ item[column] || '-' }}
-                    </div>
-                </td>
-              </tr>
+            <tbody div *ngIf="currentData.length > 0 else nodata">
+                <tr *ngFor="let item of currentData">
+                  <td class="" *ngFor="let column of listColumns" [title]="item[column]">
+                      <div class="cell">
+                          {{ item[column] || '-' }}
+                      </div>
+                  </td>
+                </tr>
             </tbody>
+            <ng-template #nodata>
+              <tr>
+                <td colspan="5"> No Records</td>
+              </tr>
+            </ng-template>
           </table>
-         
         </div>
-      </div>
-    </div>
+        <div class="total-records">({{getTotalRecords()}})</div>
   </div>
   
-  <div class="w-screen bg-white p-4 rounded-lg flex justify-center fixed bottom-0 bg-white p-4 shadow-lg">
-    <button class="" [disabled]="page === 1" (click)="onPreviousClick()">
-      previous
-    </button>
-    <div class="min-w-[100px] text-center">{{page}}</div>
-    <button class="" [disabled]="getLastPage()" (click)="onNextClick()">
-        next
-    </button>
-    <div class="px-2">{{getTotalRecords()}}</div>
+  <!-- Pagination -->
+  <div class="fixed-pagination">
+    <div class="pagination-flex-container">
+      <!-- Previous -->
+      <button class="icon-button" [disabled]="currentData.length < 0 || page === 1" (click)="onPreviousClick()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24">
+          <polyline fill="none" stroke="#000000" stroke-width="2" points="7 2 17 12 7 22" transform="matrix(-1 0 0 1 24 0)"/>
+        </svg>   
+      </button>
+
+      <!-- Page number -->
+      <div class="page-item">{{page}}</div>
+
+      <!-- Next -->
+      <button class="icon-button" [disabled]="currentData.length < 0 || getLastPage()" (click)="onNextClick()">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" height="20px" width="20px" version="1.1" id="XMLID_287_" viewBox="0 0 24 24" xml:space="preserve">
+          <g id="next">
+            <g>
+              <polygon points="6.8,23.7 5.4,22.3 15.7,12 5.4,1.7 6.8,0.3 18.5,12   "/>
+            </g>
+          </g>
+          </svg>
+      </button>
+    
+    </div>
+   
 </div>
 </div>  
 

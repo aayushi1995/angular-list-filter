@@ -3,10 +3,115 @@
     justify-content: center;
     width: 100vw;
 }
+.full-width{
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+}
 
-.columns {
-    min-width:100px;
-    white-space: nowrap;
+.table-container {
+    box-shadow: 0px 2px 5px 0px #b2b2b2;
+    padding: 10px;
+    position: relative;
+    height: 80vh;
+    overflow: scroll;
+}
+
+
+.overflow-container{
+    overflow-x: auto;
+}
+
+.table-container table {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.table-container thead{
+   box-shadow: 0px 1px 0px 0px lightgray;
+}
+table th{
+    padding: 10px;
+}
+
+table td{
+    word-break: break-all;
+    white-space: normal;
     overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 10px;
+}
+
+.cell {
+    min-width: 50px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.total-records {
+    font-size: 12px;
+    color: grey;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+/* pagination styles */
+.fixed-pagination {
+    position: fixed;
+    bottom: 0px;
+    width: 68vw;
+}
+.pagination-flex-container {
+    background-color: white;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 5px 0px darkgrey;
+    margin: 10px 0px;
+    display: inline-flex;
+    border-radius: 30px;
+}
+
+.icon-button{
+    padding: 5px;
+    background: transparent;
+    outline: none;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.icon-button:disabled{
+    color: #d1d1d1;
+    cursor: not-allowed;
+}
+.icon-button:disabled.icon-button:hover{
+    background-color: transparent;
+}
+.icon-button:hover{
+    box-shadow: 0px 3px 5px 0px darkgrey;
+    border-radius: 50%;
+}
+.page-item {
+    color: black;
+    font-weight: 500;
+    padding: 0px 20px;
+}
+
+/* Mobile css */
+
+@media screen and (max-width: 800px) {
+    .table-container{
+        height:100vh;
+    }
+    .fixed-pagination{
+       width: 100vw;
+    }
+    .fixed-pagination{
+        position: relative;
+    }
 }

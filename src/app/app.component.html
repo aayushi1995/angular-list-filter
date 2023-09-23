@@ -1,13 +1,10 @@
-<!-- <div class="bg-white p-4 rounded-lg shadow-md">
-   <app-list></app-list>
-   <app-toolbox></app-toolbox>
-</div> -->
-<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 light:bg-gray-800">
-      <app-toolbox></app-toolbox>
+<h3 class="flexbox center">List & Filters</h3>
+<div class="flexbox">
+   <div class="side-bar" id="default-sidebar" aria-label="Sidebar">
+      <app-sidebar></app-sidebar>
    </div>
-</aside>
-
-<div class="p-4 sm:ml-64">
-   <app-list></app-list>
+   <div class="list-view">
+      <app-list></app-list>
+   </div>
 </div>
+
