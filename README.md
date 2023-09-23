@@ -1,24 +1,3 @@
-# List&Filters
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Dependencies
-
-1. rxjs Library : create and work with observables
-
-
 ## List & Filters
 
 ### Description:
@@ -36,7 +15,10 @@ Users can also use an api endpoint and replace with the local url.
 4. After successfully installing dependencies, Run `ng serve`
 5. If the window doesn't appear automatically then open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
-### Dependencies used are default Angular ecosystem
+### Dependencies used are default Angular ecosystem libraries
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+
 1. ` @angular/core `, `@angular/common`, `@angular/core`, `@angular/forms` 
 2. ` rxjs `, `tslib`
    
@@ -52,6 +34,8 @@ Users can also use an api endpoint and replace with the local url.
 9. Implementing sidebar appraoch where sidebar can be draggable and resizable
 10. Virtualizations in Listview
 11. Enable column based sorting on listview
+
+
 ### - Developer :
 
 aayushi.kambriya5@gmail.com
@@ -59,3 +43,4 @@ aayushi.kambriya5@gmail.com
 ### - Deployment :
 
 The app is deployed at ` https://aayushi1995.github.io/angular-list-filter`
+
