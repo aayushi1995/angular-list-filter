@@ -5,7 +5,7 @@
 
      <!-- TODO: create a custom dropdown component and use that -->
       <div class="form-group">
-        <label for="column" class="block text-sm font-medium leading-6 text-gray-900"> Columns </label>
+        <label for="column"> Columns </label>
         <select [ngClass]="group.get('column').hasError('required') && group.get('column').touched ? 'validation-error' : 'validation-success'" id="column" formControlName="column" autocomplete="column"  aria-labelledby="column-label" aria-placeholder="Select Column">
           <option *ngFor="let col of columns" [value]="col">{{col}}</option>
         </select> 
@@ -16,7 +16,7 @@
 
      
       <div class="form-group">
-        <label for="operator" class="block text-sm font-medium leading-6 text-gray-900"> Operators </label>
+        <label for="operator"> Operators </label>
         <select id="operator" formControlName="operator" [ngClass]="group.get('operator').hasError('required') && group.get('operator').touched ? 'validation-error' : 'validation-success'"  aria-label="Select an Operator"  aria-placeholder="Select Operator" >
           <option *ngFor="let op of operators" [value]="op">{{op}}</option>
         </select>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="form-group">
-        <label for="inputValue" class="block text-sm font-medium leading-6 text-gray-900"> Value </label>
+        <label for="inputValue"> Value </label>
         <input type="text" id="inputValue" formControlName="inputValue" [ngClass]="group.get('inputValue').hasError('required') && group.get('inputValue').touched ? 'validation-error' : 'validation-success'" aria-label="Type Input value" aria-placeholder="Enter Input value">
         <div *ngIf="group.get('inputValue').hasError('required') && group.get('inputValue').touched" class="required-alert">
           Required
