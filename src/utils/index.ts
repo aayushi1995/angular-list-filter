@@ -42,7 +42,11 @@ export const applyFilters = (filters:Ifilters[], obj:IData): boolean => {
           break;
 
         case '=':
-          passesAllFilters = passesAllFilters && parseInt(objValue) === parseInt(inputValue);
+          if(isNaN(parseInt(objValue))) {
+            passesAllFilters = passesAllFilters && (objValue === inputValue);
+          } else {
+            passesAllFilters = passesAllFilters && parseFloat(objValue) === parseFloat(inputValue);
+          }
           break;
 
         case '≠':
